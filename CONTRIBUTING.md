@@ -61,17 +61,17 @@ You will need to install toolchains and software for the relevant language to de
 1. Install the latest version of [Rust](https://www.rust-lang.org/tools/install), preferably using `rustup`.
 
     > [!TIP]
-    > If you're setting this up in azure, use `sudo snap install rustup --classic` to install `rustup`, and then use `rustup` to install Rust
+    > If you're setting this up with linux, use `sudo snap install rustup --classic` to install `rustup`, and then use `rustup` to install Rust
 
     > [!TIP]
     > You should preferably install the `default` profile (as the name suggests, this is picked by default), which includes all the necessary components for general Rust development.
 
-3. Install the Rust `nightly` toolchain by running `rustup toolchain install nightly`.
+2. Install the Rust `nightly` toolchain by running `rustup toolchain install nightly`.
 
     > [!NOTE]
     > The `nightly` toolchain is required since the formatter configuration uses some `nightly`-only options. Compiling should be done using the `stable` toolchain.
 
-4. Install [`rustfmt`](https://github.com/rust-lang/rustfmt) on the `nightly` toolchain by running `rustup component add rustfmt --toolchain nightly`.
+3. Install [`rustfmt`](https://github.com/rust-lang/rustfmt) on the `nightly` toolchain by running `rustup component add rustfmt --toolchain nightly`.
 
 </details>
 
