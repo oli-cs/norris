@@ -204,6 +204,8 @@ These must be set from the Discord developer portal as well as by the bot itself
     - `Manage Roles`
     - `Manage Nicknames`
     - `Send Messages`
+    - `View Channels`
+    - `Embed Links`
 
 4. You can then use the generated URL to invite the bot to a Discord server.
 
@@ -242,19 +244,11 @@ Most of this data is kept around and used throughout its runtime.
 
         - `main-channel-id` - the ID of the main undergraduate channel containing both students and staff (aka `#atrium-chatter`)
 
-    - `postgrad`
-
-        - `main-channel-id` - the ID of the main postgraduate channel containing both students and staff (aka `#postgrad-atrium`)
-
-        - `common-channel-id` - the ID of the student-only postgraduate channel (aka `#postgrad-common-chatter`)
-
 - `roles`
 
     - `hierarchy`
 
         - `undergrad-role-id` - the ID of the role for undergraduate students
-
-        - `postgrad-role-id` - the ID of the role for postgraduate students
 
         - `mentor-role-id` - the ID of the role for mentors
 
@@ -312,13 +306,8 @@ nickname-channel-id = 1234567890987654321
 [channels.undergrad]
 main-channel-id = 1234567890987654321
 
-[channels.postgrad]
-main-channel-id = 1234567890987654321
-common-channel-id = 1234567890987654321
-
 [roles.hierarchy]
 undergrad-role-id = 1234567890987654321
-postgrad-role-id = 1234567890987654321
 mentor-role-id = 1234567890987654321
 senior-mentor-role-id = 1234567890987654321
 honorary-mentor-role-id = 1234567890987654321
