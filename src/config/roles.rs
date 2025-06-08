@@ -20,11 +20,10 @@ pub struct RolesConfig {
 
 impl RolesConfig {
     /// The IDs of all [`Role`]s that can be granted by the bot during the registration process.
-    pub fn roles_needing_registration(&self) -> [RoleId; 17] {
+    pub fn roles_needing_registration(&self) -> [RoleId; 16] {
         [
             // Hierarchy and user kind roles
             self.hierarchy.undergrad_role_id,
-            self.hierarchy.postgrad_role_id,
             self.hierarchy.mentor_role_id,
             self.hierarchy.senior_mentor_role_id,
             self.hierarchy.honorary_mentor_role_id,
@@ -48,10 +47,9 @@ impl RolesConfig {
     /// The IDs of all roles whose members can be nuked as part of [`nuke`] testing.
     ///
     /// [`nuke`]: crate::commands::registration::nuke
-    pub fn nukable_roles(&self) -> [RoleId; 2] {
+    pub fn nukable_roles(&self) -> [RoleId; 1] {
         [
             self.hierarchy.undergrad_role_id,
-            self.hierarchy.postgrad_role_id,
         ]
     }
 }
@@ -62,8 +60,6 @@ impl RolesConfig {
 pub struct HierarchyRolesConfig {
     /// The ID of the role given to undergraduates.
     pub undergrad_role_id: RoleId,
-    /// The ID of the role given to postgraduates.
-    pub postgrad_role_id: RoleId,
     /// The ID of the role given to mentors.
     pub mentor_role_id: RoleId,
     /// The ID of the role given to senior mentors.
@@ -83,7 +79,6 @@ impl HierarchyRolesConfig {
     pub fn role(&self, kind: VerifiedUserKind) -> RoleId {
         match kind {
             VerifiedUserKind::Undergrad => self.undergrad_role_id,
-            VerifiedUserKind::Postgrad => self.postgrad_role_id,
             VerifiedUserKind::Mentor => self.mentor_role_id,
             VerifiedUserKind::SeniorMentor => self.senior_mentor_role_id,
             VerifiedUserKind::HonoraryMentor => self.honorary_mentor_role_id,

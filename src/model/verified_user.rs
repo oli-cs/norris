@@ -64,8 +64,6 @@ pub enum VerifiedUserKind {
     /// An undergraduate student.
     #[default]
     Undergrad,
-    /// A postgraduate student.
-    Postgrad,
     /// A mentor.
     Mentor,
     /// A senior mentor.
@@ -81,7 +79,6 @@ impl VerifiedUserKind {
     pub fn description(self) -> &'static str {
         match self {
             Self::Undergrad => "first-year undergraduate student",
-            Self::Postgrad => "first-year postgraduate student",
             Self::Mentor => "mentor",
             Self::SeniorMentor => "senior mentor",
             Self::HonoraryMentor => "honorary mentor",

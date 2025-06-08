@@ -35,24 +35,20 @@ pub async fn add(
 
 /// Represents the kinds of users that can be added as unregistered users via the `registration add` command.
 ///
-/// For security reasons, only undergraduates and postgraduates can be added via the command.
+/// For security reasons, only undergraduates can be added via the command.
 /// Mentors, senior mentors, honorary mentors, and members of faculty must be added manually, as they have significantly more permissions than regular students.
 #[derive(ChoiceParameter, Clone, Copy, Debug, Default, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum StudentKind {
     /// An undergraduate student.
     #[default]
     #[name = "Undergraduate"]
-    Undergrad,
-    /// A postgraduate student.
-    #[name = "Postgraduate"]
-    Postgrad,
+    Undergrad
 }
 
 impl From<StudentKind> for VerifiedUserKind {
     fn from(kind: StudentKind) -> Self {
         match kind {
             StudentKind::Undergrad => Self::Undergrad,
-            StudentKind::Postgrad => Self::Postgrad,
         }
     }
 }
