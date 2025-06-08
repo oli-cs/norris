@@ -1,17 +1,18 @@
-CREATE TABLE `registrations` (
-  `user_id` bigint(20) unsigned NOT NULL,
-  `status` enum('UNREGISTERED','STARTED','NAME_ENTERED','KIND_FOUND','VERIFIED','PRONOUNS_PICKED','REGISTERED','FAILED') NOT NULL DEFAULT 'UNREGISTERED',
-  `name` varchar(1024) DEFAULT NULL,
-  `kind` enum('UNDERGRAD','POSTGRAD','MENTOR','SENIOR_MENTOR','HONORARY_MENTOR','FACULTY') DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+create table `registrations` (
+    `user_id` bigint unsigned not null,
+    `status` enum('UNREGISTERED','STARTED','NAME_ENTERED','KIND_FOUND','VERIFIED','PRONOUNS_PICKED','REGISTERED','FAILED') NOT NULL,
+    `name` varchar(1024),
+    `kind` enum('UNDERGRAD','POSTGRAD','MENTOR','SENIOR_MENTOR','HONORARY_MENTOR','FACULTY'),
 
-CREATE TABLE `users` (
-  `name` varchar(1024) NOT NULL,
-  `kind` enum('UNDERGRAD','POSTGRAD','MENTOR','SENIOR_MENTOR','HONORARY_MENTOR','FACULTY') DEFAULT NULL,
-  `registered_user_id` bigint(20) unsigned DEFAULT NULL,
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`),
-  KEY `users_registrations_FK` (`registered_user_id`),
-  CONSTRAINT `users_registrations_FK` FOREIGN KEY (`registered_user_id`) REFERENCES `registrations` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+    primary key (`user_id`)
+) engine=InnoDB default charset=utf8 collate=utf8_unicode_ci;
+
+create table `users` (
+    `id` bigint unsigned not null auto_increment,
+    `name` varchar(1024) not null,
+    `kind` enum('UNDERGRAD','POSTGRAD','MENTOR','SENIOR_MENTOR','HONORARY_MENTOR','FACULTY') not null,
+    `registered_user_id` bigint unsigned,
+    
+    primary key (`id`),
+    constraint `users_registrations_fk` foreign key (`registered_user_id`) references `registrations` (`user_id`) on delete set null on update cascade
+) engine=InnoDB auto_increment=0 default charset=utf8 collate=utf8_unicode_ci;
