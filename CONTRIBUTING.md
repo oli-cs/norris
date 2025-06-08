@@ -204,6 +204,8 @@ These must be set from the Discord developer portal as well as by the bot itself
     - `Manage Roles`
     - `Manage Nicknames`
     - `Send Messages`
+    - `View Channels`
+    - `Embed Links`
 
 4. You can then use the generated URL to invite the bot to a Discord server.
 
